@@ -11,8 +11,8 @@ const allowedOrigins = ['https://www.afanhandoyo.com'];
 
 const corsOptions = {
     origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin)) {
-      // if (true) {
+      // if (allowedOrigins.includes(origin)) {
+      if (true) {
         callback(null, true);
       } else {
         const error = new Error('Not allowed by CORS');
