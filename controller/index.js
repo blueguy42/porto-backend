@@ -1,3 +1,4 @@
 const authController = require('./auth');
+const emailController = require('./email');
 
-module.exports = { authController };
+module.exports = { authController, emailController };

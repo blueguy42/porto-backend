@@ -1,25 +1,11 @@
-const admin = require('firebase-admin');
-
-admin.initializeApp({
-    credential: admin.credential.cert({
-        type: process.env.FIREBASE_TYPE,
-        project_id: process.env.FIREBASE_PROJECT_ID,
-        private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-        private_key: process.env.FIREBASE_PRIVATE_KEY,
-        client_email: process.env.FIREBASE_CLIENT_EMAIL,
-        client_id: process.env.FIREBASE_CLIENT_ID,
-        auth_uri: process.env.FIREBASE_AUTH_URI,
-        token_uri: process.env.FIREBASE_TOKEN_URI,
-        auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
-        client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
-    })
-});
+const { firebase } = require('../../utils');
+const { auth } = firebase;
 
 async function validateToken(req, res) {
     try {
         const accessToken = req.body.token;
 
-        const decodedToken = await admin.auth().verifyIdToken(accessToken);
+        const decodedToken = await auth.verifyIdToken(accessToken);
         res.status(200).json({ msg: 'Token is valid.', email: decodedToken.email });
         } catch (error) {
         console.error(error);
