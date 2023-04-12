@@ -12,8 +12,7 @@ admin.initializeApp({
         token_uri: process.env.FIREBASE_TOKEN_URI,
         auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
         client_x509_cert_url: process.env.FIREBASE_CLIENT_X509_CERT_URL,
-    }),
-    databaseURL: "-------------"
+    })
 });
 
 async function validateToken(req, res) {
@@ -24,7 +23,7 @@ async function validateToken(req, res) {
         res.status(200).json({ msg: 'Token is valid.', email: decodedToken.email });
         } catch (error) {
         console.error(error);
-        res.status(401).json({ msg: 'Unauthorized' });
+        res.status(401).json({ msg: 'Unauthorized. Token is invalid.' });
         }
 }
 

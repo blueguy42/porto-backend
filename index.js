@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.get('/', (req, res) => {
-    res.status(200).json({ msg: 'Welcome to Porto-Backend application.' });
+    res.status(200).json({ msg: 'Welcome to Porto-Backend application.'});
 });
 
 app.use('/api', api);
