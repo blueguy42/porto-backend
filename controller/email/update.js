@@ -8,7 +8,6 @@ async function update(req, res) {
         if (!query.exists) {
             throw new Error(`List of allowed emails does not exist`);
         }
-        const email = query.data().emails;
         const newEmails = req.body.emails;
         
         await docRef.update({ emails: newEmails });
