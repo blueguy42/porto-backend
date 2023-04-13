@@ -8,8 +8,9 @@ async function read(req, res) {
         if (!query.exists) {
             throw new Error(`List of allowed emails does not exist`);
         }
+        const admin = query.data().admin;
         const email = query.data().emails;
-        res.status(200).json({ msg: 'Successfully got list of allowed emails.', email });
+        res.status(200).json({ msg: 'Successfully got list of allowed emails.', admin, email });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Internal server error.' });
