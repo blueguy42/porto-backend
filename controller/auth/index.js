@@ -1,4 +1,4 @@
 const validateToken = require('./validateToken');
-const verifyToken = require('./verifyToken');
+const verifyTokenMiddleware = require('./verifyTokenMiddleware');
 
-module.exports = { validateToken, verifyToken };
+module.exports = { validateToken, verifyTokenMiddleware };

@@ -1,7 +1,7 @@
 const { firebase } = require('../../utils');
 const { auth } = firebase;
 
-async function verifyToken(req, res, next) {
+async function verifyTokenMiddleware(req, res, next) {
     try {
         const accessToken = req.headers.authorization.split(' ')[1];
         const decodedToken = await auth.verifyIdToken(accessToken);
@@ -12,4 +12,4 @@ async function verifyToken(req, res, next) {
     }
 }
 
-module.exports = verifyToken;
+module.exports = verifyTokenMiddleware;
