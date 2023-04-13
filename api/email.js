@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/get', authController.verifyToken, emailController.read);
-router.post('/update', authController.verifyToken, emailController.update);
+router.put('/put', authController.verifyToken, emailController.update);
 
 
 module.exports = router;
