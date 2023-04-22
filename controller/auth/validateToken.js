@@ -7,8 +7,8 @@ async function validateToken(req, res) {
 
         const decodedToken = await auth.verifyIdToken(accessToken);
         res.status(200).json({ msg: 'Token is valid.', email: decodedToken.email, name: decodedToken.name });
-        } catch (error) {
-        console.error(error);
+        } catch (err) {
+        console.error(err);
         res.status(401).json({ msg: 'Unauthorized. Token is invalid.', error: err.message });
         }
 }

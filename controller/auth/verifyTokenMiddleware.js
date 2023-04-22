@@ -7,7 +7,7 @@ async function verifyTokenMiddleware(req, res, next) {
         const decodedToken = await auth.verifyIdToken(accessToken);
         req.user = decodedToken;
         next();
-    } catch (error) {
+    } catch (err) {
         res.status(401).json({ msg: 'Unauthorized. Token is invalid.', error: err.message });
     }
 }
