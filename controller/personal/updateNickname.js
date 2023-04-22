@@ -9,6 +9,10 @@ async function updateNickname(req, res) {
             throw new Error(`Personal information does not exist`);
         }
         const nickname = req.body.nickname;
+
+        if (nickname.length === 0) {
+            throw new Error(`Nickname cannot be empty`);
+        }
         
         await docRef.update({ nickname });
         res.status(200).json({ msg: 'Successfully updated nickname.', nickname });

@@ -9,6 +9,10 @@ async function updateSubtitle1(req, res) {
             throw new Error(`Personal information does not exist`);
         }
         const subtitle1 = req.body.subtitle1;
+
+        if (subtitle1.length === 0) {
+            throw new Error(`Subtitle1 cannot be empty`);
+        }
         
         await docRef.update({ subtitle1 });
         res.status(200).json({ msg: 'Successfully updated subtitle1.', subtitle1 });
