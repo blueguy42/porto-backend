@@ -8,7 +8,7 @@ async function verifyTokenMiddleware(req, res, next) {
         req.user = decodedToken;
         next();
     } catch (error) {
-        res.status(401).json({ msg: 'Unauthorized. Token is invalid.' });
+        res.status(401).json({ msg: 'Unauthorized. Token is invalid.', error: err.message });
     }
 }
 

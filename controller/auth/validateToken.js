@@ -9,7 +9,7 @@ async function validateToken(req, res) {
         res.status(200).json({ msg: 'Token is valid.', email: decodedToken.email, name: decodedToken.name });
         } catch (error) {
         console.error(error);
-        res.status(401).json({ msg: 'Unauthorized. Token is invalid.' });
+        res.status(401).json({ msg: 'Unauthorized. Token is invalid.', error: err.message });
         }
 }
 

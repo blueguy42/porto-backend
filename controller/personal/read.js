@@ -12,7 +12,7 @@ async function read(req, res) {
         res.status(200).json({ msg: 'Successfully got personal information.', data });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ msg: 'Internal server error.', err });
+        res.status(500).json({ msg: 'Internal server error.', error: err.message });
     }
 }
 

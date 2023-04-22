@@ -18,7 +18,7 @@ async function updateNickname(req, res) {
         res.status(200).json({ msg: 'Successfully updated nickname.', nickname });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ msg: 'Internal server error.', err });
+        res.status(500).json({ msg: 'Internal server error.', error: err.message });
     }
 }
 
