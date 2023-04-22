@@ -14,7 +14,7 @@ async function update(req, res) {
         res.status(200).json({ msg: 'Successfully updated list of allowed emails.', email: newEmails });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ msg: 'Internal server error.' });
+        res.status(500).json({ msg: 'Internal server error.', err });
     }
 }
 

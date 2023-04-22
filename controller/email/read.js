@@ -13,7 +13,7 @@ async function read(req, res) {
         res.status(200).json({ msg: 'Successfully got list of allowed emails.', admin, email });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ msg: 'Internal server error.' });
+        res.status(500).json({ msg: 'Internal server error.', err });
     }
 }
 

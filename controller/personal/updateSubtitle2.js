@@ -18,7 +18,7 @@ async function updateSubtitle2(req, res) {
         res.status(200).json({ msg: 'Successfully updated subtitle2.', subtitle2 });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ msg: 'Internal server error.' });
+        res.status(500).json({ msg: 'Internal server error.', err });
     }
 }
 
