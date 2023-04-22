@@ -6,7 +6,7 @@ async function read(req, res) {
         const docRef = db.collection('frontend-db').doc("personal-information");
         const query = await docRef.get();
         if (!query.exists) {
-            throw new Error(`Personal information does not exist`);
+            throw new Error(`Personal information does not exist.`);
         }
         const data = query.data();
         res.status(200).json({ msg: 'Successfully got personal information.', data });

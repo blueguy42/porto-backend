@@ -6,7 +6,7 @@ async function update(req, res) {
         const docRef = db.collection('frontend-db').doc("allowed-emails");
         const query = await docRef.get();
         if (!query.exists) {
-            throw new Error(`List of allowed emails does not exist`);
+            throw new Error(`List of allowed emails does not exist.`);
         }
         const newEmails = req.body.emails;
         

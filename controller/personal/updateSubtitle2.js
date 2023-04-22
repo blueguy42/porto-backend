@@ -6,12 +6,12 @@ async function updateSubtitle2(req, res) {
         const docRef = db.collection('frontend-db').doc("personal-information");
         const query = await docRef.get();
         if (!query.exists) {
-            throw new Error(`Personal information does not exist`);
+            throw new Error(`Personal information does not exist.`);
         }
         const subtitle2 = req.body.subtitle2;
 
         if (subtitle2.length === 0) {
-            throw new Error(`Subtitle2 cannot be empty`);
+            throw new Error(`Subtitle2 cannot be empty.`);
         }
         
         await docRef.update({ subtitle2 });

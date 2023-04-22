@@ -6,12 +6,12 @@ async function updateNickname(req, res) {
         const docRef = db.collection('frontend-db').doc("personal-information");
         const query = await docRef.get();
         if (!query.exists) {
-            throw new Error(`Personal information does not exist`);
+            throw new Error(`Personal information does not exist.`);
         }
         const nickname = req.body.nickname;
 
         if (nickname.length === 0) {
-            throw new Error(`Nickname cannot be empty`);
+            throw new Error(`Nickname cannot be empty.`);
         }
         
         await docRef.update({ nickname });
