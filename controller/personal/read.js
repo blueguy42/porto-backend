@@ -3,7 +3,7 @@ const { db } = firebase;
 
 async function read(req, res) {
     try {
-        const docRef = db.collection('frontend-db').doc("personal-information");
+        const docRef = db.collection('frontend-db').doc("personal");
         const query = await docRef.get();
         if (!query.exists) {
             throw new Error(`Personal information does not exist.`);
