@@ -12,5 +12,7 @@ router.put('/putDescription', authController.verifyTokenMiddleware, aboutControl
 router.get('/getLink', aboutController.readLink);
 router.put('/putEmail', authController.verifyTokenMiddleware, aboutController.updateEmail);
 router.put('/putLinkedIn', authController.verifyTokenMiddleware, aboutController.updateLinkedIn);
+router.put('/putGitHub', authController.verifyTokenMiddleware, aboutController.updateGitHub);
+router.put('/putInstagram', authController.verifyTokenMiddleware, aboutController.updateInstagram);
 
 module.exports = router;
