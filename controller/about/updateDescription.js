@@ -15,7 +15,7 @@ async function updateDescription(req, res) {
         }
         
         const descriptionLines = description.split(/\r\n|\r|\n/);
-        if (descriptionLines.length >= 2) {
+        if (descriptionLines.length < 2) {
             throw new Error(`Description must have at least two lines`);
         }
         for (let i = 0; i < descriptionLines.length; i++) {
