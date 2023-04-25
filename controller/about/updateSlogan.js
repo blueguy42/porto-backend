@@ -12,7 +12,7 @@ async function updateSlogan(req, res) {
 
         if (slogan.length === 0) {
             throw new Error(`Slogan cannot be empty.`);
-        } else if ( str.split(/\r\n|\r|\n/).length != 2 ) {
+        } else if (slogan.split(/\r\n|\r|\n/).length != 2 ) {
             throw new Error(`Slogan can only have two lines`);
         }
         
