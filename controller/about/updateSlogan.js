@@ -12,8 +12,16 @@ async function updateSlogan(req, res) {
 
         if (slogan.length === 0) {
             throw new Error(`Slogan cannot be empty.`);
-        } else if (slogan.split(/\r\n|\r|\n/).length != 2 ) {
-            throw new Error(`Slogan can only have two lines`);
+        }
+        
+        const sloganLines = slogan.split(/\r\n|\r|\n/);
+        if (sloganLines.length != 2) {
+            throw new Error(`Slogan must have two lines`);
+        }
+        for (let i = 0; i < sloganLines.length; i++) {
+            if (sloganLines[i].length > 24) {
+                throw new Error(`Slogan line ${i + 1} cannot be more than 24 characters.`);
+            }
         }
         
         await docRef.update({ slogan });
