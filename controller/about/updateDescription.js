@@ -14,16 +14,6 @@ async function updateDescription(req, res) {
             throw new Error(`Description cannot be empty.`);
         }
         
-        const descriptionLines = description.split(/\r\n|\r|\n/);
-        if (descriptionLines.length < 2) {
-            throw new Error(`Description must have at least two lines`);
-        }
-        for (let i = 0; i < descriptionLines.length; i++) {
-            if (descriptionLines[i].length === 0) {
-                throw new Error(`Description line ${i + 1} cannot be empty.`);
-            }
-        }
-        
         await docRef.update({ description });
         res.status(200).json({ msg: 'Successfully updated description.', description });
     } catch (err) {
