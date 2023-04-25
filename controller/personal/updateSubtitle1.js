@@ -9,9 +9,11 @@ async function updateSubtitle1(req, res) {
             throw new Error(`Personal information does not exist.`);
         }
         const subtitle1 = req.body.subtitle1;
-
-        if (subtitle1.length === 0) {
-            throw new Error(`Subtitle1 cannot be empty.`);
+        
+        if (subtitle1.length > 32) {
+            throw new Error('Subtitle 1 string exceeds 32 characters');
+        } else if (subtitle1.length === 0) {
+            throw new Error('Subtitle 1 cannot be empty');
         }
         
         await docRef.update({ subtitle1 });

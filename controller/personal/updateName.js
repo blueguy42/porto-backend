@@ -10,7 +10,9 @@ async function updateName(req, res) {
         }
         const name = req.body.name;
 
-        if (name.length === 0) {
+        if (name.length > 20) {
+            throw new Error('Name string exceeds 20 characters')
+        } else if (name.length === 0) {
             throw new Error(`Name cannot be empty.`);
         }
         

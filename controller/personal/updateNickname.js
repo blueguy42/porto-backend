@@ -10,8 +10,10 @@ async function updateNickname(req, res) {
         }
         const nickname = req.body.nickname;
 
-        if (nickname.length === 0) {
-            throw new Error(`Nickname cannot be empty.`);
+        if (nickname.length > 10) {
+            throw new Error('Nickname string exceeds 10 characters');
+        } else if (nickname.length === 0) {
+            throw new Error('Nickname cannot be empty');
         }
         
         await docRef.update({ nickname });

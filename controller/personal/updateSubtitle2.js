@@ -10,8 +10,10 @@ async function updateSubtitle2(req, res) {
         }
         const subtitle2 = req.body.subtitle2;
 
-        if (subtitle2.length === 0) {
-            throw new Error(`Subtitle2 cannot be empty.`);
+        if (subtitle2.length > 32) {
+            throw new Error('Subtitle 2 string exceeds 32 characters');
+        } else if (subtitle2.length === 0) {
+            throw new Error('Subtitle 2 cannot be empty');
         }
         
         await docRef.update({ subtitle2 });
