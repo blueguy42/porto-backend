@@ -14,7 +14,7 @@ async function updateDescription(req, res) {
             throw new Error(`Description cannot be empty.`);
         }
         
-        const descriptionLines = descriptionLines.split(/\r\n|\r|\n/);
+        const descriptionLines = description.split(/\r\n|\r|\n/);
         if (descriptionLines.length >= 2) {
             throw new Error(`Description must have at least two lines`);
         }
