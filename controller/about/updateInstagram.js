@@ -12,7 +12,7 @@ async function updateInstagram(req, res) {
 
         if (instagram.length === 0) {
             throw new Error(`Instagram cannot be empty.`);
-        } else if (!instagram.match(/^(http(s)?:)?\/\/(www\.)?instagram\.com\/([A-z0-9-_\.]+)\/*/g)) {
+        } else if (!instagram.match(/^(http(s)?:)?\/\/(www\.)?instagram\.com\/([_.a-zA-Z0-9]+)\/*$/g)) {
             throw new Error(`Instagram does not have a valid Instagram URL format.`);
         }
         

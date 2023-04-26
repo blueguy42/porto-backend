@@ -12,7 +12,7 @@ async function updateLinkedIn(req, res) {
 
         if (linkedin.length === 0) {
             throw new Error(`LinkedIn cannot be empty.`);
-        } else if (!linkedin.match(/^(http(s)?:)?\/\/([\w]+\.)?linkedin\.com\/(pub|in|profile)\/([-a-zA-Z0-9]+)\/*/g)) {
+        } else if (!linkedin.match(/^(http(s)?:)?\/\/([\w]+\.)?linkedin\.com\/(pub|in|profile)\/([-a-zA-Z0-9]+)\/*$/g)) {
             throw new Error(`LinkedIn does not have a valid LinkedIn URL format.`);
         }
         

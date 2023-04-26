@@ -12,7 +12,7 @@ async function updateGitHub(req, res) {
 
         if (github.length === 0) {
             throw new Error(`GitHub cannot be empty.`);
-        } else if (!github.match(/^(http(s)?:)?\/\/(www\.)?github\.com\/([A-z0-9_-]+)\/*/g)) {
+        } else if (!github.match(/^(http(s)?:)?\/\/(www\.)?github\.com\/([_-a-zA-Z0-9]+)\/*$/g)) {
             throw new Error(`GitHub does not have a valid GitHub URL format.`);
         }
         
