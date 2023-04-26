@@ -21,6 +21,8 @@ async function updateSlogan(req, res) {
         for (let i = 0; i < sloganLines.length; i++) {
             if (sloganLines[i].length > 24) {
                 throw new Error(`Slogan line ${i + 1} cannot be more than 24 characters.`);
+            } else if (sloganLines[i].length === 0) {
+                throw new Error(`Slogan line ${i + 1} cannot be empty.`);
             }
         }
         
