@@ -1,4 +1,20 @@
 const admin = require('firebase-admin');
+const { initializeApp } = require("firebase/app");
+const { getStorage } = require("firebase/storage");
+
+const firebaseConfig = {
+    apiKey: process.env.FIREBASE_CONFIG_APIKEY,
+    authDomain: process.env.FIREBASE_CONFIG_AUTHDOMAIN,
+    projectId: process.env.FIREBASE_CONFIG_PROJECTID,
+    storageBucket: process.env.FIREBASE_CONFIG_STORAGEBUCKET,
+    messagingSenderId: process.env.FIREBASE_CONFIG_MESSAGINGSENDERID,
+    appId: process.env.FIREBASE_CONFIG_APPID,
+    measurementId: process.env.FIREBASE_CONFIG_MEASUREMENTID
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+
+const storage = getStorage(firebaseApp);
 
 admin.initializeApp({
     credential: admin.credential.cert({
@@ -19,4 +35,4 @@ const auth = admin.auth();
 
 const db = admin.firestore();
 
-module.exports = { auth, db };
+module.exports = { auth, db, storage };
