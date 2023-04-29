@@ -1,7 +1,8 @@
-import { ref, getDownloadURL } from "firebase/storage";
-
 const { firebase } = require('../../utils');
 const { db, storage } = firebase;
+
+const { ref, getDownloadURL } =  require("firebase/storage");
+
 
 async function getCvUrl(req, res) {
     try {
