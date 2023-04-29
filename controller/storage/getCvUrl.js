@@ -1,9 +1,6 @@
 const { firebase } = require('../../utils');
 const { db, storage } = firebase;
 
-const { ref, getDownloadURL } =  require("firebase/storage");
-
-
 async function getCvUrl(req, res) {
     try {
         const docRef = db.collection('frontend-db').doc("about");
@@ -12,8 +9,9 @@ async function getCvUrl(req, res) {
             throw new Error(`About information does not exist.`);
         }
         const cvPath = query.data().cvPath;
-        const storageRef = ref(storage, cvPath);
-        const url = await getDownloadURL(storageRef);
+
+        const [url] = await storage.file(cvPath).getSignedUrl({ version: 'v4', action: 'read', expires: Date.now() + 60 * 60 * 1000, });
+          
         res.status(200).json({ msg: 'Successfully got CV download URL.', url });
     } catch (err) {
         console.error(err);
