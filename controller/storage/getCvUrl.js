@@ -14,7 +14,7 @@ async function getCvUrl(req, res) {
             throw new Error(`CV path does not exist.`);
         }
 
-        const [url] = await storage.file(cvPath).getSignedUrl({ version: 'v4', action: 'read', expires: Date.now() + 24 * 60 * 60 * 1000, });
+        const [url] = await storage.file(cvPath).getSignedUrl({ version: 'v4', action: 'read', expires: Date.now() + 4 * 24 * 60 * 60 * 1000, });
           
         res.status(200).json({ msg: 'Successfully got CV download URL.', url });
     } catch (err) {
