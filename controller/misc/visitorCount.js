@@ -11,7 +11,7 @@ async function visitorCount(req, res) {
         const visitCount = query.data().visitCount;
 
         await docRef.update({ visitCount: visitCount+1 });
-        res.status(200).json({ msg: `You are the ${visitCount+1}st visitor.`, visitCount: visitCount+1 });
+        res.status(200).json({ msg: `You are the visitor number ${visitCount+1}.`, visitCount: visitCount+1 });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Internal server error.', error: err.message });
