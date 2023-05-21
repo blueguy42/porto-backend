@@ -18,4 +18,4 @@ async function visitorCount(req, res) {
     }
 }
 
-module.exports = validateToken;
+module.exports = visitorCount;
