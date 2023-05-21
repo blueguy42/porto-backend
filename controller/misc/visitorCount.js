@@ -8,10 +8,12 @@ async function visitorCount(req, res) {
         if (!query.exists) {
             throw new Error(`Miscellaneous document does not exist.`);
         }
-        const visitCount = query.data().visitCount;
 
-        await docRef.update({ visitCount: visitCount+1 });
-        res.status(200).json({ msg: `You are visitor number ${visitCount+1}.`, visitCount: visitCount+1 });
+        const visitCount = query.data().visitCount;
+        visitCount.push(new Date().getTime());
+
+        await docRef.update({ visitCount });
+        res.status(200).json({ msg: `You are visitor number ${visitCount.length}.`, visitCount });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Internal server error.', error: err.message });
