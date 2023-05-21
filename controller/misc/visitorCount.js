@@ -13,7 +13,7 @@ async function visitorCount(req, res) {
         visitCount.push(new Date().getTime());
 
         await docRef.update({ visitCount });
-        res.status(200).json({ msg: `You are visitor number ${visitCount.length}.`, visitCount });
+        res.status(200).json({ msg: `You are visitor number ${visitCount.length}.`, visitCount: visitCount.length });
     } catch (err) {
         console.error(err);
         res.status(500).json({ msg: 'Internal server error.', error: err.message });
