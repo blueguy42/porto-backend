@@ -1,3 +1,4 @@
-const visitorCount = require('./visitorCount');
+const addVisitorCount = require('./addVisitorCount');
+const getVisitorCount = require('./getVisitorCount');
 
-module.exports = { visitorCount };
+module.exports = { addVisitorCount, getVisitorCount };
