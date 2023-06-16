@@ -7,7 +7,8 @@ async function addVisitorCount(req, res) {
         
         if (loc.length === 0) {
             throw new Error(`Location cannot be empty.`);
-        } else if (!loc.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+        // validate if loc is a valid ipv4 address
+        } else if (!loc.match(/^(\d{1,3}\.){3}\d{1,3}$/g)) {
             throw new Error(`Location is not a valid location format.`);
         }
         
